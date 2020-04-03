@@ -1,0 +1,11 @@
+{
+  "name": "db",
+  "connector": "mongodb",
+  "url": "mongodb+srv://xavier:larosa272@clipboard-0rk7l.mongodb.net/test?retryWrites=true&w=majority",
+  "host": "0.0.0.0.",
+  "port": 27017,
+  "user": "xavier",
+  "password": "larosa272",
+  "database": "Clipboard",
+  "useNewUrlParser": true
+}
