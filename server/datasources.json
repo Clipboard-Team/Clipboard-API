@@ -1,6 +1,13 @@
 {
   "db": {
-    "name": "db",
-    "connector": "memory"
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb+srv://xavier:larosa272@clipboard-0rk7l.mongodb.net/clipboard?retryWrites=true&w=majority",
+    "database": "clipboard",
+    "password": "larosa272",
+    "name": "mongoDS",
+    "user": "xavier",
+    "useNewUrlParser": true,
+    "connector": "mongodb"
   }
 }
