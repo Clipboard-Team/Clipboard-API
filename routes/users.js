@@ -1,6 +1,7 @@
 // require express and schema dependencies
 const express = require('express')
 const router = express.Router()
+var _ = require('underscore');
 const User = require('../models/user')
 
 /*  Get All Users
@@ -37,7 +38,7 @@ router.get('/:id', getUser, async (req, res) => {
 const Joi = require('joi');
 const schema = Joi.object({
     username: Joi.string().min(4).max(255).required(),
-    password: Joi.string().min(4).max(1024).required(),
+    password: Joi.string().min(4).max(1024).required()
   });
 const bcrypt = require('bcrypt');
 const { error } = require('console')
@@ -62,7 +63,9 @@ router.post('/', async (req, res) => {
 
         const user = new User({
             username: req.body.username,
+            display_name: req.body.display_name,
             password, // hashed password
+            image: req.body.image
         })
         const newUser = await user.save()
         res.status(201).json(newUser)
@@ -139,9 +142,11 @@ router.put('/:id', getUser, async (req, res) => {
             res.user.password = password
         }
 
+        if(req.body.display_name){ res.team.title = req.body.title }
+        if(req.body.image){ res.team.image = req.body.image }
         const updatedUser = await res.user.save()
         res.json(updatedUser)
-    } catch {
+    } catch(err) {
         res.status(400).json({ message: err.message })
     }
 })

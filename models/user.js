@@ -8,13 +8,29 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    display_name: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true
     },
+    image: {
+        type: String,
+        required: true
+    },
+    teams: [{
+        type: Schema.Types.ObjectId,
+        ref: "Team"
+    }],
+    roles: [{
+        type: Schema.Types.ObjectId,
+        ref: "Role"
+    }],
     date_created: {
       type: Date,
-      default: Date.now,
+      default: Date.now
     }
 })
 
