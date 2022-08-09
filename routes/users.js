@@ -63,9 +63,7 @@ router.post('/', async (req, res) => {
 
         const user = new User({
             username: req.body.username,
-            display_name: req.body.display_name,
-            password, // hashed password
-            image: req.body.image
+            password // hashed password
         })
         const newUser = await user.save()
         res.status(201).json(newUser)

@@ -8,17 +8,17 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    display_name: {
-        type: String,
-        required: true
-    },
     password: {
         type: String,
         required: true
     },
+    display_name: {
+        type: String,
+        default: ""
+    },
     image: {
         type: String,
-        required: true
+        default: ""
     },
     teams: [{
         type: Schema.Types.ObjectId,
